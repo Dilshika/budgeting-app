@@ -1,15 +1,22 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import DashBoard, { dashboardLoader } from './pages/DashBoard';
+import Dashboard, { dashboardLoader } from './pages/Dashboard';
 import Expenses, { expensesLoader } from './pages/Expenses';
+import Main, { mainLoader } from './layouts/Main';
 
 function App() {
 	const router = createBrowserRouter([
 		{
 			path: '/',
-			element: <DashBoard />,
-			loader: dashboardLoader,
+			element: <Main />,
+			loader: mainLoader,
 			errorElement: <Error />,
 			children: [
+				{
+					index: true,
+					element: <Dashboard />,
+					loader: dashboardLoader,
+					errorElement: <Error />,
+				},
 				{ path: 'expenses', element: <Expenses />, loader: expensesLoader },
 			],
 		},

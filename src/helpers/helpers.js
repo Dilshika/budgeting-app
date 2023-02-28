@@ -8,4 +8,13 @@ export const setData = (data) => {
     
 }
 
-export const getAllMatchingItems = ()=>{}
+export const getAllMatchingItems = () => {};
+
+export const formatCurrency = (amount) => {
+	return amount.toLocalString(undefined, {
+		style: 'currency',
+		currency: 'LKR',
+	});
+};
+
+export const formatDateToLocalString = (date) => {};
